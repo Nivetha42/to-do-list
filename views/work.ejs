@@ -1,0 +1,20 @@
+
+<%- include("partials/header.ejs")  %>
+
+<h1 class=" item" id="h1-color">Work List</h1>
+<form action="/submit" method="post">
+ <div id="container">
+     <div class="item box"><input type="text" placeholder="Enter Item"   name="today"> 
+         <input type="submit" class="button" value="+"></div>
+    
+     <% if(locals.wList){%>
+      <%  for(var i=0;i<wList.length;i++){%>
+            <div class="item box"><input type="checkbox"><%=wList[i]  %> </div>
+      <%  }}%>
+     
+    
+     
+    </div>
+</form>
+
+<%- include("partials/footer.ejs")  %>

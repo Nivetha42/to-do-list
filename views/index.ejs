@@ -1,0 +1,21 @@
+
+<%- include("partials/header.ejs")  %>
+
+
+<% var d=new Date();%>
+<%const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];%>
+<%const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];%>
+<h1 class=" item" id="h1-color"> <%=weekday[d.getDay()]%>, <%= d.getDate()%> <%=months[d.getMonth()]%> <%= d.getFullYear()%></h1>
+<form action="/today" method="post">
+ <div id="container">
+     <div class="item box"><input type="text" placeholder="Enter Item"   name="today"> 
+         <input type="submit" class="button" value="+"></div>
+         <% if(locals.tList){%>
+            <%  for(var i=0;i<tList.length;i++){%>
+                  <div class="item box"><input type="checkbox"><div class="element-value"><%=tList[i]%> </div></div>
+            <%  }}%>
+     
+    </div>
+</form>
+
+<%- include("partials/footer.ejs")  %>
